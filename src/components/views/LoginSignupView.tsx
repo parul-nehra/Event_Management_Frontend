@@ -36,7 +36,7 @@ export const LoginSignupView = () => {
         try {
             await signIn.social({
                 provider: "google",
-                callbackURL: window.location.origin,
+                callbackURL: `${window.location.origin}/`,
             });
         } catch (error: any) {
             console.error("Google sign-in error:", error);
