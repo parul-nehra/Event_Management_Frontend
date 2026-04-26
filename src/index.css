@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+    /* 
+   * LEO'S DIARY - ENTRY #088
+   * "Perfection is the enemy of the good. And the enemy of the soul."
+   * We're using colors that look like they were mixed in a coffee shop.
+   */
+
+    /* The Physics of Ink - heavy but fluid */
+    --ease-sketch: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-drip: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+    /* The Palette - Soft Pastels */
+    --color-paper: #FAF9F6;
+    /* Off White */
+    --color-surface: #EBE0D0;
+    /* Bone/Beige */
+    --color-secondary: #D6C4B0;
+    /* Tan */
+    --color-accent: #D09E9E;
+    /* Dusty Rose */
+    --color-ink: #2C2420;
+    /* Dark Brown Charcoal */
+    --color-highlight: #D6C4B0;
+    /* Tan for highlights */
+
+    /* Textures */
+    --texture-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+}
+
+@theme {
+    --font-serif: "Playfair Display", serif;
+    --font-hand: "Patrick Hand", cursive;
+
+    --color-paper: var(--color-paper);
+    --color-ink: var(--color-ink);
+
+    --animate-wiggle: wiggle 2s ease-in-out infinite;
+    --animate-drip: drip 3s infinite;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+}
+
+@keyframes drip {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(20px) scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(30px) scale(0);
+        opacity: 0;
+    }
+}
+
+body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+    overflow-x: hidden;
+    /* cursor: none;  <-- Removed custom cursor */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 
+ * The Texture - Removed for performance
+ */
+/* body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: var(--texture-grain);
+    mix-blend-mode: multiply;
+    opacity: 0.15;
+} */
+
+/* Selection is a marker stroke */
+::selection {
+    background: var(--color-highlight);
+    color: var(--color-ink);
+    text-shadow: none;
+}
+
+/* Scrollbar - Rough and ready */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-ink);
+    border-radius: 2px;
+}

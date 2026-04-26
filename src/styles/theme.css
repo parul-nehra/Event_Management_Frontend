@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@import 'tailwindcss/theme' layer(theme);
+@import 'tailwindcss/preflight' layer(base);
+
+/* Simple border color compatibility */
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: rgb(229 231 235);
+  }
+}
+
+/* Basic CSS variables for the app */
+@layer base {
+  :root {
+    /* Simple spacing scale */
+    --size-scale: 1;
+
+    /* Border radii */
+    --radius-sm: 2px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-full: 9999px;
+
+    /* Basic colors */
+    --color-bg: #ffffff;
+    --color-fg: #1a1a1a;
+  }
+}
